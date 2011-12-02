@@ -42,3 +42,17 @@
 	line-height:30px;
 	color: white;
 }
+
+#board .level {
+	background: none repeat scroll 0 0 #91FF00;
+	border-radius: 0 10px 10px 0;
+	font-size: 40px;
+	height: 60px;
+	line-height: 60px;
+	position: absolute;
+	right: -50px;
+	text-align: center;
+	text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	width: 50px;
+	z-index: 10;
+}

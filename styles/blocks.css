@@ -1,5 +1,4 @@
 .block {
-    border: 1px solid rgba(0, 0, 0, 0.5);
     border-radius: 10px 10px 10px 10px;
     box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5) inset, -5px -5px 3px rgba(255, 255, 255, 0.5) inset;
     color: white;
@@ -9,11 +8,17 @@
     text-align: center;
     text-shadow: 0 0 3px #000000;
     width: 60px;
-    -webkit-transition: opacity 0.25s ease-in-out;
-		-moz-transition: opacity 0.25s ease-in-out;
-		-o-transition: opacity 0.25s ease-in-out;
-		-ms-transition: opacity 0.25s ease-in-out;	
-		transition: opacity 0.25s ease-in-out;
+    -webkit-transition: opacity 0.25s ease-in-out, position: 1s linear;
+		-moz-transition: opacity 0.25s ease-in-out, position: 1s linear;
+		-o-transition: opacity 0.25s ease-in-out, position: 1s linear;
+		-ms-transition: opacity 0.25s ease-in-out, position: 1s linear;	
+		transition: opacity 0.25s ease-in-out, position: 1s linear;
+		position: absolute;
+		top: 0;
+}
+
+.block.fixed {
+	bottom: 0;
 }
 
 .block.explode {
