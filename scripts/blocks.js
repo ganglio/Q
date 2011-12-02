@@ -1,23 +1,25 @@
 $(document).ready(function(){
-	var colors={
-		1:"red",
-		2:"yellow",
-		3:"green",
-		4:"cyan",
-		5:"blue",
-		6:"magenta"
-	};
-	
 	var level=1;
+	var status=[
+		[0,0,0,0,0,0],
+		[0,0,0,0,0,0],
+		[0,0,0,0,0,0],
+		[0,0,0,0,0,0],
+		[0,0,0,0,0,0],
+		[0,0,0,0,0,0],
+		[0,0,0,0,0,0],
+		[0,0,0,0,0,0],
+		[0,0,0,0,0,0],
+		[0,0,0,0,0,0]
+	];
 	
 	$("#board .level").html(level);
 
 	function newBlock() {
 		var lane=Math.floor(Math.random()*6+1);
 		var value=Math.floor(Math.random()*9+1);
-		var color=colors[Math.floor(Math.random()*6+1)];
 		
-		var $block=$("<div class='block "+color+"'>"+value+"</div>").data({"value":value,"color":color,"lane":lane}).addClass("moving");
+		var $block=$("<div class='block "+color+"'>"+value+"</div>").data({"value":value,"lane":lane}).addClass("moving");
 		$("#l"+lane).append($block);
 	}
 	
@@ -54,17 +56,18 @@ $(document).ready(function(){
 	function drop() {
 	}
 	
-	$(document).keyup(function(e) {
-		switch (e.keyCode) {
-			case 37:
-				moveLeft()
+	$("#nav .button").click(function(){
+		var cn=this.className.split(" ")[1];
+		switch (cn) {
+			case "left":
+				moveLeft();
 			break;
 			
-			case 39:
+			case "right":
 				moveRight();
 			break;
 			
-			case 40:
+			case "drop":
 				drop();
 			break;
 		}

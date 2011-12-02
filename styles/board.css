@@ -11,7 +11,9 @@
 #board .lanes {
 	width: 100%;
 	height:600px;
-	background-image: -moz-repeating-linear-gradient(left center,#91FF00 0px, black  3px, black 57px, #91FF00 60px);
+	background-image:
+		-moz-repeating-linear-gradient(left center, #66B300 0px, transparent 3px, transparent 57px, #66B300 60px),
+		-moz-repeating-linear-gradient(center top, #66B300 0px, transparent  3px, transparent 57px, #66B300 60px);
 	position: absolute;
 	bottom:0px;
 	border-radius: 0 0 8px 8px;
@@ -40,19 +42,43 @@
 	height: 30px;
 	text-align: center;
 	line-height:30px;
-	color: white;
 }
 
 #board .level {
-	background: none repeat scroll 0 0 #91FF00;
 	border-radius: 0 10px 10px 0;
+	border: 2px solid #91FF00;
 	font-size: 40px;
 	height: 60px;
 	line-height: 60px;
 	position: absolute;
 	right: -50px;
 	text-align: center;
-	text-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-	width: 50px;
+	width: 46px;
 	z-index: 10;
+}
+
+#nav {
+	width: 360px;
+	margin: 0 auto;
+	height: 40px;
+}
+#nav .button {
+	background: none repeat scroll 0 0 #91FF00;
+	border-radius: 10px 10px 10px 10px;
+	color: black;
+	display: block;
+	float: left;
+	font-size: 40px;
+	height: 30px;
+	line-height: 25px;
+	margin: 5px;
+	text-align: center;
+	text-shadow: 0 0 5px black;
+	width: 110px;
+}
+#nav .left {
+}
+#nav .drop {
+}
+#nav .right {
 }
