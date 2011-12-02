@@ -1,0 +1,46 @@
+.block {
+    border: 1px solid rgba(0, 0, 0, 0.5);
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5) inset, -5px -5px 3px rgba(255, 255, 255, 0.5) inset;
+    color: white;
+    font-family: Sans-serif;
+    font-size: 35px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+    text-shadow: 0 0 3px #000000;
+    width: 60px;
+    -webkit-transition: opacity 0.25s ease-in-out;
+		-moz-transition: opacity 0.25s ease-in-out;
+		-o-transition: opacity 0.25s ease-in-out;
+		-ms-transition: opacity 0.25s ease-in-out;	
+		transition: opacity 0.25s ease-in-out;
+}
+
+.block.explode {
+	opacity:0;
+}
+
+.block.red {
+	background-color: #CC2929;
+}
+
+.block.yellow {
+	background-color: #CCCC29;
+}
+
+.block.green {
+	background-color: #29CC29;
+}
+
+.block.cyan {
+	background-color: #29CCCC;
+}
+
+.block.blue {
+	background-color: #2929CC;
+}
+
+.block.magenta {
+	background-color: #CC29CC;
+}
