@@ -27,6 +27,8 @@ $(document).ready(function(){
 		newBlock();
 	});
 	
+	function start(){};
+	
 	function moveLeft() {
 		var $block=$(".block.moving");
 		var curLane=$block.data("lane");
@@ -71,5 +73,10 @@ $(document).ready(function(){
 				drop();
 			break;
 		}
+	});
+	
+	$("#splash .button.start").click(function(){
+		$("#splash").hide();
+		start();
 	});
 });
