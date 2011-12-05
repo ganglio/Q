@@ -75,6 +75,7 @@
 	text-align: center;
 	text-shadow: 0 0 5px black;
 	width: 110px;
+	cursor: pointer;
 }
 #nav .left {
 }
