@@ -12,14 +12,16 @@ $(document).ready(function(){
 		[0,0,0,0,0,0],
 		[0,0,0,0,0,0]
 	];
+	var skyline=[0,0,0,0,0,0];
+	var goals=[0,0,0,0,0,0]
 	
 	$("#board .level").html(level);
 
 	function newBlock() {
-		var lane=Math.floor(Math.random()*6+1);
+		var lane=Math.floor(Math.random()*6);
 		var value=Math.floor(Math.random()*9+1);
 		
-		var $block=$("<div class='block "+color+"'>"+value+"</div>").data({"value":value,"lane":lane}).addClass("moving");
+		var $block=$("<div class='block'>"+value+"</div>").data({"value":value,"lane":lane}).addClass("moving");
 		$("#l"+lane).append($block);
 	}
 	
@@ -27,13 +29,18 @@ $(document).ready(function(){
 		newBlock();
 	});
 	
-	function start(){};
+	function start(){
+		for (i in goals) {
+			$("#g"+i).html(goals[i]=Math.floor(Math.random()*9+1));
+		}
+		newBlock();
+	};
 	
 	function moveLeft() {
 		var $block=$(".block.moving");
 		var curLane=$block.data("lane");
 		
-		if (curLane>1) {
+		if (curLane>0) {
 			curLane--;
 			var $nb=$block.clone(true)
 			$nb.data("lane",curLane);
@@ -46,7 +53,7 @@ $(document).ready(function(){
 		var $block=$(".block.moving");
 		var curLane=$block.data("lane");
 		
-		if (curLane<9) {
+		if (curLane<5) {
 			curLane++;
 			var $nb=$block.clone(true)
 			$nb.data("lane",curLane);
@@ -56,6 +63,18 @@ $(document).ready(function(){
 	}
 	
 	function drop() {
+		var $block=$(".block.moving");
+		var curLane=$block.data("lane");
+
+		$block.css({"bottom":60*skyline[curLane]}).removeClass("moving");
+		status[skyline[curLane]++][curLane]=$block.data("value");
+		checkGoals();
+		newBlock();
+	}
+	
+	function checkGoals(){
+		for (i=0;i<9;i++)
+			for (j=0;j<6;j++) {}
 	}
 	
 	$("#nav .button").click(function(){
@@ -74,6 +93,25 @@ $(document).ready(function(){
 			break;
 		}
 	});
+	
+	$(document).keypress(function(e){
+		switch(e.keyCode) {
+			case 37:
+				moveLeft();
+				return false;
+			break;
+			
+			case 39:
+				moveRight();
+				return false;
+			break
+			
+			case 40:
+				drop();
+				return false;
+			break;
+		}
+	})
 	
 	$("#splash .button.start").click(function(){
 		$("#splash").hide();
