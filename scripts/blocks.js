@@ -73,8 +73,17 @@ $(document).ready(function(){
 	}
 	
 	function checkGoals(){
-		for (i=0;i<9;i++)
-			for (j=0;j<6;j++) {}
+		for (lane=0;lane<6;lane++) {
+			var curr=0;
+			for (row=8;row>=0;row--) 
+				if (status[row][lane]!=0) {
+					curr+=status[row][lane];
+					if (curr==goals[lane]) {
+						$("#g"+lane).html(goals[lane]=Math.floor(Math.random()*9+1));
+					} else if (curr>goals[lane])
+						curr=status[row][lane];
+				}
+		}
 	}
 	
 	$("#nav .button").click(function(){
